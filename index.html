@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprendre le Créole - Learn & Speak Creole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🌴 Apprendre le Créole</div>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="showSection('home')" data-i18n="nav.home">Home</a></li>
+                <li><a href="#vocabulary" onclick="showSection('vocabulary')" data-i18n="nav.vocabulary">Vocabulary</a></li>
+                <li><a href="#pronunciation" onclick="showSection('pronunciation')" data-i18n="nav.pronunciation">Pronunciation</a></li>
+                <li><a href="#practice" onclick="showSection('practice')" data-i18n="nav.practice">Practice</a></li>
+                <li><a href="#about" onclick="showSection('about')" data-i18n="nav.about">About</a></li>
+            </ul>
+            <div class="language-switcher">
+                <label for="languageSelect" data-i18n="language.label">Language</label>
+                <select id="languageSelect" aria-label="Change language">
+                    <option value="en">English</option>
+                    <option value="ht">Kreyòl Ayisyen</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="section active">
+        <div class="hero">
+            <h1 data-i18n="home.title">Welcome to Apprendre le Créole</h1>
+            <p data-i18n="home.subtitle">Learn and Master the Beauty of Creole Language</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="showSection('vocabulary')" data-i18n="home.start">Start Learning</button>
+                <button class="btn btn-secondary" onclick="showSection('about')" data-i18n="home.learnMore">Learn More</button>
+            </div>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3 data-i18n="features.vocab.title">Rich Vocabulary</h3>
+                <p data-i18n="features.vocab.desc">Hundreds of words and phrases organized by categories</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔊</div>
+                <h3 data-i18n="features.pronunciation.title">Pronunciation Guide</h3>
+                <p data-i18n="features.pronunciation.desc">Listen to native pronunciations and improve your accent</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 data-i18n="features.exercise.title">Interactive Exercises</h3>
+                <p data-i18n="features.exercise.desc">Practice with quizzes and interactive exercises</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🗣️</div>
+                <h3 data-i18n="features.speaking.title">Speaking Practice</h3>
+                <p data-i18n="features.speaking.desc">Record and practice your Creole speaking skills</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vocabulary" class="section">
+        <div class="container">
+            <h2 data-i18n="vocabulary.title">Creole Vocabulary</h2>
+
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterCategory('all', this)" data-i18n="category.all">All</button>
+                <button class="filter-btn" onclick="filterCategory('greetings', this)" data-i18n="category.greetings">Greetings</button>
+                <button class="filter-btn" onclick="filterCategory('numbers', this)" data-i18n="category.numbers">Numbers</button>
+                <button class="filter-btn" onclick="filterCategory('common', this)" data-i18n="category.common">Common Phrases</button>
+                <button class="filter-btn" onclick="filterCategory('food', this)" data-i18n="category.food">Food & Drink</button>
+                <button class="filter-btn" onclick="filterCategory('family', this)" data-i18n="category.family">Family</button>
+            </div>
+
+            <div class="vocabulary-grid" id="vocabularyGrid"></div>
+        </div>
+    </section>
+
+    <section id="pronunciation" class="section">
+        <div class="container">
+            <h2 data-i18n="pronunciation.title">Pronunciation Guide</h2>
+            <p class="subtitle" data-i18n="pronunciation.subtitle">Listen to native speakers and practice along</p>
+
+            <div class="pronunciation-list" id="pronunciationList"></div>
+        </div>
+    </section>
+
+    <section id="practice" class="section">
+        <div class="container">
+            <h2 data-i18n="practice.title">Interactive Practice</h2>
+
+            <div class="practice-tabs">
+                <button class="tab-btn active" onclick="switchPractice('quiz', this)" data-i18n="practice.quiz">Quiz</button>
+                <button class="tab-btn" onclick="switchPractice('matching', this)" data-i18n="practice.matching">Matching</button>
+                <button class="tab-btn" onclick="switchPractice('speaking', this)" data-i18n="practice.speaking">Speaking Practice</button>
+            </div>
+
+            <div id="quiz-tab" class="practice-tab active">
+                <div class="quiz-container">
+                    <div id="quizContent"></div>
+                </div>
+            </div>
+
+            <div id="matching-tab" class="practice-tab">
+                <div class="matching-container">
+                    <div class="matching-instructions" data-i18n="matching.instructions">Match the English words with their Creole translations</div>
+                    <div id="matchingContent"></div>
+                </div>
+            </div>
+
+            <div id="speaking-tab" class="practice-tab">
+                <div class="speaking-container">
+                    <div id="speakingContent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 data-i18n="about.title">About Creole Language</h2>
+            <div class="about-content">
+                <h3 data-i18n="about.whatTitle">What is Creole?</h3>
+                <p data-i18n="about.whatBody">Haitian Creole is a vibrant language spoken in Haiti and by the Haitian diaspora around the world. It emerged from the blending of French, African languages, and other influences, creating a unique linguistic heritage.</p>
+
+                <h3 data-i18n="about.whyTitle">Why Learn Creole?</h3>
+                <ul>
+                    <li data-i18n="about.why1">🌍 Connect with Haitian communities across the world</li>
+                    <li data-i18n="about.why2">🎭 Explore a rich cultural heritage</li>
+                    <li data-i18n="about.why3">💼 Expand your professional opportunities</li>
+                    <li data-i18n="about.why4">🎵 Enjoy music, literature, and arts in their original language</li>
+                </ul>
+
+                <h3 data-i18n="about.funTitle">Fun Facts</h3>
+                <ul>
+                    <li data-i18n="about.fun1">Haitian Creole is spoken by millions of people worldwide</li>
+                    <li data-i18n="about.fun2">It is one of Haiti's official languages</li>
+                    <li data-i18n="about.fun3">It has a clear spelling system that helps learners read quickly</li>
+                    <li data-i18n="about.fun4">Creole is central to Haitian identity, music, and storytelling</li>
+                </ul>
+
+                <div class="contact-card">
+                    <h3>Contact & Support</h3>
+                    <p><strong>Email (Public):</strong> <a href="mailto:Elzakaryg@gmail.com">Elzakaryg@gmail.com</a></p>
+                    <p><strong>MonCash:</strong> <a href="tel:+50947857565">+(509) 4785-7565</a></p>
+                    <p><strong>NatCash:</strong> <a href="tel:+50933745820">+(509) 3374-5820</a></p>
+                    <p><strong>Gmail (Payments):</strong> <a href="mailto:gustinvilfedson@gmail.com">gustinvilfedson@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="progress-tracker">
+        <div class="progress-header">
+            <h3 data-i18n="progress.title">Your Progress</h3>
+            <span id="progressPercentage">0%</span>
+        </div>
+        <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <p id="progressText" data-i18n="progress.default">Learn new words to track your progress!</p>
+    </div>
+
+    <div id="wordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeWordModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-i18n="footer">© 2026 Apprendre le Créole. A platform for learning Haitian Creole language and culture. 🌴</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

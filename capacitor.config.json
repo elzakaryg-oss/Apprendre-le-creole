@@ -1,0 +1,7 @@
+{
+  "appId": "com.apprendre.creole",
+  "appName": "Apprendre le Creole",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}
+
